@@ -36,7 +36,8 @@ class DetailPage extends StatelessWidget {
               );
             }
 
-            List<WeatherDetail> listData = snapshot.data as List<WeatherDetail>;
+            List<WeatherDetail> listDataWeather =
+                snapshot.data as List<WeatherDetail>;
 
             return Scaffold(
               appBar: AppBar(
