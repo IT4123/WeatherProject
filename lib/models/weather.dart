@@ -174,7 +174,7 @@ class WeatherDetail {
   factory WeatherDetail.fromMap(Map<String, dynamic> map) {
     return WeatherDetail(
       main: Main.fromMap(map['main'] as Map<String, dynamic>),
-      weather: Weather.fromMap(map['weather'] as Map<String, dynamic>),
+      weather: Weather.fromMap(map['weather'][0] as Map<String, dynamic>),
       dt_txt: map['dt_txt'] as String,
     );
   }

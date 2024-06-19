@@ -20,7 +20,7 @@ class ApiReponsitory {
     try {
       final dio = Dio();
       final res = await dio.get(
-          'https://api.openweathermap.org/data/2.5/forecast?lat=10,3711147&lon=105,3438403&appid=3830e32c4b93c2e2b7d86ead74685780${MyKey.api_token}');
+          'https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&units=metric&appid=${MyKey.api_token}');
       final data = res.data['list']; //trả về kiểu map
       List<WeatherDetail> result = List<WeatherDetail>.from(
           data.map((e) => WeatherDetail.fromMap(e)).toList());

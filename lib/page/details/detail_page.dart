@@ -25,19 +25,20 @@ class DetailPage extends StatelessWidget {
           future: context.read<WeatherProvider>().getWeatherDetail(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
+              print('đang đợi');
               return const Center(
                 child: CircularProgressIndicator(),
               );
             }
 
             if (!snapshot.hasData) {
+              print('Không có dữ liệu');
               return const Center(
                 child: CircularProgressIndicator(),
               );
             }
 
-            List<WeatherDetail> listDataWeather =
-                snapshot.data as List<WeatherDetail>;
+            List<WeatherDetail> listData = snapshot.data as List<WeatherDetail>;
 
             return Scaffold(
               appBar: AppBar(
@@ -70,7 +71,9 @@ class DetailPage extends StatelessWidget {
                   )
                 ],
               ),
-              body: const DetailBody(),
+              body: DetailBody(
+                listData: listData,
+              ),
             );
           }),
     );
